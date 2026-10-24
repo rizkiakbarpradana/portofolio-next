@@ -1,6 +1,7 @@
+"use client";
 
 import Hero from "@/components/Hero";
-import SkillCard from "@/components/SkillsCard"
+import SkillCard from "@/components/SkillsCard";
 
 export default function Home() {
   const skills = [
@@ -17,6 +18,14 @@ export default function Home() {
     { hari: "Rabu", waktu: "19.30 - 20.30", kegiatan: "Merekam video dan menulis laporan" },
   ];
 
+  // Fungsi untuk scroll otomatis ke section tertentu
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="bg-[#eff6f0] min-h-screen text-[#1e293b] flex flex-col justify-between font-sans">
       <main className="max-w-4xl mx-auto p-6 md:p-12 w-full space-y-6">
@@ -25,17 +34,19 @@ export default function Home() {
         <Hero
           nama="Rizki Akbar Pradana"
           tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG." 
+          onTentangSayaClick={() => scrollToSection("tentang-saya")}
+          onLihatKeahlianClick={() => scrollToSection("keahlian")}
         />
 
         {/* Section 2: Tentang Saya */}
-        <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <section id="tentang-saya" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 scroll-mt-6">
           <h2 className="text-xl font-bold text-[#1e293b] mb-2">Tentang Saya</h2>
           <p className="text-slate-600 leading-relaxed text-sm">
             Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi. Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM di sekitar rumah.
           </p>
         </section>
 
-        {/* Section 3 & 4: Hobi & Cita-Cita Grid (Responsif 2 Kolom) */}
+        {/* Section 3 & 4: Hobi & Cita-Cita Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Hobi */}
           <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
@@ -62,7 +73,7 @@ export default function Home() {
         </div>
 
         {/* Section 5: Keahlian */}
-        <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+        <section id="keahlian" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 scroll-mt-6">
           <h2 className="text-xl font-bold text-[#1e293b] mb-4">Keahlian</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {skills.map((skill) => (
