@@ -1,25 +1,28 @@
-// src/components/ProyekCard.jsx
-import React from 'react';
-
-export default function ProyekCard({ judul, kategori, deskripsi }) {
+import Image from "next/image";
+import Link from "next/link";
+export default function ProyekCard({ proyek }) {
   return (
-    <div className="border border-gray-200 rounded-xl p-5 shadow-sm bg-white flex flex-col gap-3">
-      {/* 2. Kategori sebagai label kecil membulat */}
-      <div>
-        <span className="inline-block bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">
-          {kategori}
-        </span>
+    <Link
+      href={`/proyek/${proyek.slug}`}
+      className="block overflow-hidden rounded-xl border border
+gray-200 bg-white shadow-sm hover:shadow-md"
+    >
+      <Image
+        src={proyek.gambar}
+        alt={`Tangkapan layar ${proyek.judul}`}
+        width={640}
+        height={420}
+        loading="eager"
+        className="h-auto w-full"
+      />
+
+      <div className="p-5">
+        <span className="rounded-full bg-latar px-3 py-1 text-xs 
+font-semibold text-utama">{proyek.kategori}</span>
+        <h3 className="mt-3 text-lg font-semibold text
+utama">{proyek.judul}</h3>
+ <p className="mt-1 text-sm text-gray-600">{proyek.deskripsi}
+</p>
       </div>
-      
-      {/* 2. Judul dengan warna text-utama */}
-      <h3 className="text-xl font-bold text-utama">
-        {judul}
-      </h3>
-      
-      {/* 2. Deskripsi dengan huruf kecil berwarna abu-abu */}
-      <p className="text-sm text-gray-500 leading-relaxed">
-        {deskripsi}
-      </p>
-    </div>
-  );
-}
+    </Link>
+  ); }
