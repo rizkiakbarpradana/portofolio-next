@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link"; // 1. Wajib mengimpor Link dari Next.js
 
-export default function Hero({ nama, tagline, onTentangSayaClick, onLihatKeahlianClick }) {  
+// 2. Menghapus props onTentangSayaClick karena sudah tidak digunakan untuk scroll
+export default function Hero({ nama, tagline, onLihatKeahlianClick }) {  
   return (    
     <section className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">      
       <Image      
@@ -17,12 +19,16 @@ export default function Hero({ nama, tagline, onTentangSayaClick, onLihatKeahlia
         
         {/* Tombol Aksi Tambahan Sesuai Gambar Referensi */}
         <div className="mt-5 flex flex-wrap items-center gap-3 justify-center md:justify-start">
-          <button 
-            onClick={onTentangSayaClick}
-            className="bg-[#C1121F] text-white px-5 py-2 rounded-lg font-medium text-sm transition hover:opacity-90 cursor-pointer"
+          
+          {/* 3. MENGUBAH BUTTON MENJADI LINK UNTUK PINDAH HALAMAN */}
+          <Link 
+            href="/tentang" 
+            className="bg-[#C1121F] text-white px-5 py-2 rounded-lg font-medium text-sm transition hover:opacity-90 cursor-pointer inline-block"
           >
             Tentang saya
-          </button>
+          </Link>
+          
+          {/* Tombol Lihat Keahlian tetap menggunakan button untuk scroll ke bawah */}
           <button 
             onClick={onLihatKeahlianClick}
             className="bg-white border border-gray-300 text-gray-800 px-5 py-2 rounded-lg font-medium text-sm transition hover:bg-gray-50 cursor-pointer"
