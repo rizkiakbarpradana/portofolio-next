@@ -7,9 +7,9 @@ export const proyek = [
     gambar: "/proyek/hasil_project_1.png",
     deskripsi: "Portofolio pertama saya, yang dibangun dari nol sembari mempelajari dasar-dasar pengembangan frontend, struktur HTML, dan penataan gaya mode gelap (dark mode).",
     fitur: [
-      "Judul dan paragraf perkenalan dengan h1 dan p",
-      "Foto profil dengan atribut alt",
-      "Daftar hobi dengan ul dan li",
+      "Membuat judul utama perkenalan diri menggunakan tag h1 dan paragraf deskripsi p",
+      "Menyusun section 'Tentang Saya' yang berisi ringkasan profil sebagai siswa RPL",
+      "Mendaftar keahlian dan skill yang sedang dipelajari menggunakan list poin (ul dan li)",
     ],
   },
   {
@@ -20,9 +20,9 @@ export const proyek = [
     gambar: "/proyek/hasil_project_2.png",
     deskripsi: "Latihan desain web responsif yang mencakup tata letak fleksibel, titik henti (breakpoint) untuk desktop, status hover, serta pemeriksaan menggunakan Lighthouse.",
     fitur: [
-      "Lima isian dengan label yang terhubung",
-       "Validasi required dan type email",
-      "Pilihan keperluan dengan select",
+      "Membuat kartu profil digital responsif dengan tata letak flexbox dan grid",
+      "Mengatur breakpoint media queries agar tampilan kartu proyek otomatis rapi di layar handphone",
+      "Menganalisis performa kecepatan dan aksesibilitas halaman web menggunakan audit Lighthouse",
     ],
   },
   {
@@ -33,9 +33,9 @@ export const proyek = [
     gambar: "/proyek/hasil_project_3.png",
     deskripsi: "Profil interaktif yang menggunakan peristiwa (event) JavaScript untuk pergantian tema, sapaan dinamis, dan avatar animasi.",
     fitur: [
-      "Judul tabel dengan caption",
-      "Baris judul di thead",
-      "Tiga kolom: hari, waktu, kegiatan",
+      "Membuat fitur sapaan dinamis (seperti 'Selamat Sore') yang otomatis berubah menggunakan logika waktu JavaScript",
+      "Mengintegrasikan tombol interaktif 'Mode Gelap' menggunakan JavaScript DOM untuk mengubah tema warna halaman",
+      "Menyusun daftar keahlian kompetensi industri (seperti HTML5 Semantic dan CSS3 Flexbox) dalam bentuk badge capsule yang rapi",
     ],
   },
 ];
