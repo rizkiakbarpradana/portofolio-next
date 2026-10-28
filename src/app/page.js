@@ -7,6 +7,7 @@ import SkillCard from "@/components/SkillsCard";
 import { proyek } from "@/data/proyek";
 
 export default function Home() {
+  // Tetap menampilkan 5 data keahlian bawaan Anda
   const skills = [
     { id: 1, nama: "HTML", level: "Menengah" },
     { id: 2, nama: "CSS", level: "Menengah" },
@@ -45,6 +46,16 @@ export default function Home() {
               <SkillCard key={skill.id} nama={skill.nama} level={skill.level} />
             ))}
           </div>
+
+          {/* 🛠️ MENAMBAHKAN TOMBOL LIHAT SEMUA KEAHLIAN BERWARNA MERAH */}
+          <div className="mt-8 flex justify-start">
+            <Link 
+              href="/keahlian" 
+              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
+            >
+              Lihat semua keahlian
+            </Link>
+          </div>
         </section>
 
         {/* Section: Proyek Terbaru */}
@@ -58,11 +69,11 @@ export default function Home() {
             ))}
           </div>
           
-          {/* Tombol Lihat Semua Proyek dipisah di bawah grid agar rapi dan tidak merusak grid */}
+          {/* 🛠️ MENGUBAH TOMBOL LIHAT SEMUA PROYEK MENJADI WARNA MERAH */}
           <div className="mt-8 flex justify-start">
             <Link 
               href="/proyek" 
-              className="rounded-lg bg-[#0d233a] px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-opacity-90 transition-all text-sm"
+              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
             >
               Lihat semua proyek
             </Link>
