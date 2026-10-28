@@ -13,7 +13,6 @@ export default function Kontak() {
         <p className="mt-2 text-base text-slate-600">Punya pertanyaan atau ingin bekerja sama? Isi form berikut:</p>
       </div>
 
-      {/* 🛠️ PERBAIKAN 1: Menambahkan 'items-stretch' agar tinggi kolom kiri dan kanan dipaksa sama panjang */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-stretch w-full">
         
         {/* KOLOM KIRI: FORMULIR */}
@@ -108,7 +107,6 @@ export default function Kontak() {
         </div>
 
         {/* KOLOM KANAN: TEMUKAN SAYA */}
-        {/* 🛠️ PERBAIKAN 2: Mengganti 'h-fit' menjadi 'h-full' agar kotak memanjang mengikuti tinggi form kiri */}
         <div className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm w-full h-full flex flex-col justify-start">
           <h2 className="text-lg font-bold text-slate-900 mb-4">Temukan Saya di</h2>
           <div className="flex flex-col space-y-3 text-sm">

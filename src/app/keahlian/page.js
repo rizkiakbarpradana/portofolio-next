@@ -12,7 +12,6 @@ export default function HalamanKeahlian() {
       <h1 className="text-3xl font-bold text-slate-900 md:text-4xl mb-3">Keahlian Saya</h1>
       <p className="text-slate-600 mb-8">Daftar kompetensi dan keahlian pengembangan web yang telah saya pelajari.</p>
       
-      {/* Grid kartu Link ke halaman detail masing-masing keahlian */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {keahlian.map((item) => (
           <Link

@@ -7,7 +7,7 @@ import SkillCard from "@/components/SkillsCard";
 import { proyek } from "@/data/proyek";
 
 export default function Home() {
-  // Tetap menampilkan 5 data keahlian bawaan Anda
+  
   const skills = [
     { id: 1, nama: "HTML", level: "Menengah" },
     { id: 2, nama: "CSS", level: "Menengah" },
@@ -47,7 +47,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* 🛠️ MENAMBAHKAN TOMBOL LIHAT SEMUA KEAHLIAN BERWARNA MERAH */}
           <div className="mt-8 flex justify-start">
             <Link 
               href="/keahlian" 
@@ -62,14 +61,12 @@ export default function Home() {
         <section className="pt-2">
           <h2 className="mb-5 text-xl font-bold text-[#0d233a]">Proyek Terbaru</h2>
           
-          {/* Container Grid untuk Kartu Proyek */}
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {proyekTerbaru.map((item) => (
               <ProyekCard key={item.slug} proyek={item} />
             ))}
           </div>
           
-          {/* 🛠️ MENGUBAH TOMBOL LIHAT SEMUA PROYEK MENJADI WARNA MERAH */}
           <div className="mt-8 flex justify-start">
             <Link 
               href="/proyek" 

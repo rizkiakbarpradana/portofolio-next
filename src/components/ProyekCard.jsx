@@ -5,29 +5,26 @@ export default function ProyekCard({ proyek }) {
   return (
     <Link
       href={`/proyek/${proyek.slug}`}
-      // 1. Menggunakan flex flex-col h-full agar tinggi pembungkus luar seluruh kartu sama rata mengikuti kartu tertinggi
+      
       className="block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 group h-full flex flex-col justify-between"
     >
-      {/* 2. Pembungkus bagian atas menggunakan flex flex-col h-full agar area teks mendorong kartu ke bawah secara seimbang */}
+      
       <div className="flex flex-col h-full">
         
-        {/* 3. MENGUNCI TINGGI GAMBAR: Menggunakan aspect-video (16:9) atau h-48 + object-cover agar gambar dipotong rata */}
         <div className="relative w-full aspect-video overflow-hidden bg-slate-50 flex-shrink-0 border-b border-gray-100">
           <Image
             src={proyek.gambar}
             alt={`Tangkapan layar ${proyek.judul}`}
-            fill // Menggunakan properti fill agar gambar menyesuaikan dengan kotak pembungkus aspect-video
+            fill 
             sizes="(max-w-768px) 100vw, 33vw"
             loading="eager"
-            priority={true}       // 🛠️ Mengutamakan kecepatan muat gambar agar LCP bersih
-            quality={100}         // 🛠️ Memaksa Next.js menampilkan resolusi tertinggi (100%)
-            unoptimized={true}    // 🛠️ MENGUNCI KUALITAS ASLI: Mencegah gambar diburamkan/dikompresi oleh sistem Next.js
-            // object-cover memotong bagian tepi gambar secara rapi sehingga gambar tidak ditarik menjadi peyang/gepeng
+            priority={true}       
+            quality={100}         
+            unoptimized={true}    
             className="object-cover object-top transition-transform duration-500 group-hover:scale-103"
           />
         </div>
 
-        {/* 4. Konten Teks diatur dengan flex-grow agar area deskripsi memiliki ruang tampung yang adil */}
         <div className="p-5 flex flex-col flex-grow justify-between">
           <div>
             {/* Bagian Kategori */}

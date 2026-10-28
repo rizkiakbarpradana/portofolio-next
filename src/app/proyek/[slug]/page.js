@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  // Ditambahkan decodeURIComponent agar %20 kembali menjadi spasi asli saat mencari data
   const decodedSlug = decodeURIComponent(slug);
   const item = proyek.find((p) => p.slug === decodedSlug);
   
@@ -17,7 +16,6 @@ export async function generateMetadata({ params }) {
 
 export default async function DetailProyek({ params }) {
   const { slug } = await params;
-  // Ditambahkan decodeURIComponent agar pencarian .find() sukses mencocokkan teks spasi database
   const decodedSlug = decodeURIComponent(slug);
   const item = proyek.find((p) => p.slug === decodedSlug);
 
@@ -29,7 +27,6 @@ export default async function DetailProyek({ params }) {
     // Menggunakan space-y-6 agar tata letak elemen turun ke bawah dengan lega dan rapi
     <main className="mx-auto max-w-3xl px-4 py-10 space-y-6 text-[#1e293b] font-sans">
       
-      {/* Memperbaiki tulisan text-aksen yang sebelumnya terputus enter */}
       <Link href="/proyek" className="text-sm font-semibold text-blue-600 hover:underline inline-block">
         &larr; Kembali ke daftar proyek
       </Link>
@@ -44,7 +41,6 @@ export default async function DetailProyek({ params }) {
         </p>
       </div>
 
-      {/* Memperbaiki border border-gray-200 yang sebelumnya terputus enter */}
       <div className="overflow-hidden rounded-xl border border-gray-200 shadow-sm bg-white">
         <Image
           src={item.gambar}
