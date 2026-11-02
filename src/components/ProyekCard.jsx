@@ -6,12 +6,12 @@ export default function ProyekCard({ proyek }) {
     <Link
       href={`/proyek/${proyek.slug}`}
       
-      className="block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 group h-full flex flex-col justify-between"
+      className="block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-300 group h-full flex flex-col justify-between"
     >
       
       <div className="flex flex-col h-full">
         
-        <div className="relative w-full aspect-video overflow-hidden bg-slate-50 flex-shrink-0 border-b border-gray-100">
+        <div className="relative w-full aspect-video overflow-hidden bg-slate-50 dark:bg-gray-700 flex-shrink-0 border-b border-gray-100 dark:border-gray-700">
           <Image
             src={proyek.gambar}
             alt={`Tangkapan layar ${proyek.judul}`}
@@ -32,7 +32,7 @@ export default function ProyekCard({ proyek }) {
               {proyek.kategori.map((kat, index) => (
                 <span 
                   key={index} 
-                  className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-utama mr-1 mb-1"
+                  className="rounded-full bg-slate-100 dark:bg-gray-700 px-2.5 py-0.5 text-xs font-semibold text-utama dark:text-sky-200 mr-1 mb-1"
                 >
                   {kat}
                 </span>
@@ -40,12 +40,12 @@ export default function ProyekCard({ proyek }) {
             </div>
             
             {/* Judul Proyek */}
-            <h3 className="mt-3 text-lg font-bold text-utama group-hover:text-blue-600 transition-colors line-clamp-2">
+            <h3 className="mt-3 text-lg font-bold text-utama dark:text-sky-200 group-hover:text-blue-600 transition-colors line-clamp-2">
               {proyek.judul}
             </h3>
             
             {/* Deskripsi Proyek dengan flex-grow agar batas bawah paragraf lurus sejajar */}
-            <p className="mt-1 text-sm text-gray-600 line-clamp-3 flex-grow">
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 line-clamp-3 flex-grow">
               {proyek.deskripsi}
             </p>
           </div>

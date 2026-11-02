@@ -2,21 +2,21 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center font-sans text-[#1e293b]">
+    <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center font-sans text-gray-800 dark:text-gray-100">
       <div className="max-w-md space-y-5">
         
         {/* Angka 404 Besar */}
-        <h1 className="text-6xl font-extrabold text-[#C1121F] md:text-7xl">
+        <h1 className="text-6xl font-extrabold text-aksen dark:text-red-300 md:text-7xl">
           404
         </h1>
         
         {/* Judul */}
-        <h2 className="text-2xl font-bold text-utama md:text-3xl">
+        <h2 className="text-2xl font-bold text-utama dark:text-sky-200 md:text-3xl">
           Halaman tidak ditemukan
         </h2>
         
         {/* Kalimat Penjelasan */}
-        <p className="text-sm text-gray-500 md:text-base leading-relaxed">
+        <p className="text-sm text-gray-500 dark:text-gray-400 md:text-base leading-relaxed">
           Alamat atau halaman web yang Anda cari tidak ada, telah dihapus, atau sedang dipindahkan.
         </p>
         

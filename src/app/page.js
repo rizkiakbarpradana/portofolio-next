@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-[#1e293b] flex flex-col font-sans">
+    <div className="min-h-screen text-gray-800 dark:text-gray-100 flex flex-col font-sans">
       <main className="max-w-5xl mx-auto p-4 md:p-10 w-full space-y-12">
         
         {/* Section 1: Hero */}
@@ -40,7 +40,7 @@ export default function Home() {
 
         {/* Section: Keahlian */}
         <section id="keahlian" className="scroll-mt-6">
-          <h2 className="text-xl font-bold text-[#0d233a] mb-5">Keahlian</h2>
+          <h2 className="text-xl font-bold text-utama dark:text-sky-200 mb-5">Keahlian</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {skills.map((skill) => (
               <SkillCard key={skill.id} nama={skill.nama} level={skill.level} />
@@ -59,7 +59,7 @@ export default function Home() {
 
         {/* Section: Proyek Terbaru */}
         <section className="pt-2">
-          <h2 className="mb-5 text-xl font-bold text-[#0d233a]">Proyek Terbaru</h2>
+          <h2 className="mb-5 text-xl font-bold text-utama dark:text-sky-200">Proyek Terbaru</h2>
           
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {proyekTerbaru.map((item) => (
