@@ -1,13 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import ProyekCard from "@/components/ProyekCard";
-import SkillCard from "@/components/SkillsCard";
 import { proyek } from "@/data/proyek";
+import FilterKeahlian from "@/components/FilterKeahlian";
 
-export default function Home() {
-  
+export default async function Page() {
   const skills = [
     { id: 1, nama: "HTML", level: "Menengah" },
     { id: 2, nama: "CSS", level: "Menengah" },
@@ -18,14 +15,6 @@ export default function Home() {
 
   const proyekTerbaru = proyek.slice(-3);
 
-  // Fungsi untuk scroll otomatis ke section tertentu
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <div className="min-h-screen text-gray-800 dark:text-gray-100 flex flex-col font-sans">
       <main className="max-w-5xl mx-auto p-4 md:p-10 w-full space-y-12">
@@ -34,18 +23,16 @@ export default function Home() {
         <Hero
           nama="Rizki Akbar Pradana"
           tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG." 
-          onTentangSayaClick={() => scrollToSection("tentang-saya")}
-          onLihatKeahlianClick={() => scrollToSection("keahlian")}
+          // Note: Jika fungsi scroll-to-section dibutuhkan di Hero, 
+          // pastikan logika interaksinya diatur di dalam komponen Hero (Client Component) itu sendiri.
         />
 
         {/* Section: Keahlian */}
         <section id="keahlian" className="scroll-mt-6">
           <h2 className="text-xl font-bold text-utama dark:text-sky-200 mb-5">Keahlian</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {skills.map((skill) => (
-              <SkillCard key={skill.id} nama={skill.nama} level={skill.level} />
-            ))}
-          </div>
+          
+          {/* Ketentuan 5: Mengganti div kartu keahlian lama dengan <FilterKeahlian /> */}
+          <FilterKeahlian skills={skills} />
 
           <div className="mt-8 flex justify-start">
             <Link 
