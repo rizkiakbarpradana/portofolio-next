@@ -51,5 +51,20 @@ dengan `now()` |
 RLS aktif. Policy `Pengunjung boleh membaca keahlian`: peran `anon` 
 boleh `select` semua baris
 
+## Tabel `jadwal`
+
+Daftar jadwal belajar Rizki Akbar Pradana.
+
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| `id` | `int8` | Primary key, nomor otomatis 1, 2, 3, ... |
+| `hari` | `text` | Nama hari belajar |
+| `waktu` | `text` | Durasi atau jam kegiatan belajar |
+| `kegiatan` | `text` | Detail aktivitas belajar |
+
+RLS aktif. Policy `Memungkinkan baca publik untuk peran anon`: peran `anon` boleh `select` semua baris
+
+
+
 RLS aktif tanpa policy, sehingga pengunjung tidak  bisa membaca 
 pesan. Policy `insert` dibuat di Minggu 15
