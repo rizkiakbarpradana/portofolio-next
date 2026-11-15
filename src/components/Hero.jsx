@@ -11,11 +11,11 @@ export default function Hero({ nama, tagline, onLihatKeahlianClick }) {
         width={180}        
         height={180}        
         loading="eager"        
-        className="w-32 h-32 rounded-full aspect-square object-cover border-4 border-red-600"     
+        className="w-32 h-32 rounded-full aspect-square object-cover border-4 border-primary"
       />      
       <div className="flex-1">        
-        <h1 className="text-3xl font-bold text-utama dark:text-sky-200 md:text-5xl">Halo, saya {nama}!</h1>
-        <p className="mt-3 text-lg text-gray-700 dark:text-gray-300">{tagline}</p>
+        <h1 className="text-3xl font-bold text-primary md:text-5xl">Halo, saya {nama}!</h1>
+        <p className="mt-3 text-lg text-muted-foreground">{tagline}</p>
         
         
         <div className="mt-5 flex flex-wrap items-center gap-3 justify-center md:justify-start">
@@ -23,14 +23,14 @@ export default function Hero({ nama, tagline, onLihatKeahlianClick }) {
           
           <Link 
             href="/tentang" 
-            className="bg-[#C1121F] text-white px-5 py-2 rounded-lg font-medium text-sm transition hover:opacity-90 cursor-pointer inline-block"
+            className="inline-block cursor-pointer rounded-lg bg-black px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
             Tentang saya
           </Link>
           
           <button 
             onClick={onLihatKeahlianClick}
-            className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-100 px-5 py-2 rounded-lg font-medium text-sm transition hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
+            className="cursor-pointer rounded-lg border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             Lihat keahlian
           </button>

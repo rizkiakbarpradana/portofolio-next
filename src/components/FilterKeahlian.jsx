@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import SkillCard from "./SkillsCard"; 
+import { Button } from "@/components/ui/button";
 
 export default function FilterKeahlian({ skills }) {
   const [selectedLevel, setSelectedLevel] = useState("Semua");
@@ -17,22 +18,19 @@ export default function FilterKeahlian({ skills }) {
       {/* Tombol Filter */}
       <div className="flex flex-wrap gap-2 mb-4">
         {levels.map((level) => (
-          <button
+          <Button
             key={level}
+            variant={selectedLevel === level ? "default" : "outline"}
+            className="rounded-full px-4 py-2"
             onClick={() => setSelectedLevel(level)}
-            className={`px-4 py-2 text-sm font-medium rounded-full border transition-all ${
-              selectedLevel === level
-                ? "bg-red-700 text-white border-red-700 shadow"
-                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-            }`}
           >
             {level}
-          </button>
+          </Button>
         ))}
       </div>
 
       {/* Teks Jumlah Keahlian */}
-      <p className="text-sm text-gray-500 mb-4">
+      <p className="mb-4 text-sm text-muted-foreground">
         Menampilkan {filteredSkills.length} keahlian
       </p>
 

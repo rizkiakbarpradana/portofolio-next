@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 bg-white p-2 text-gray-950 focus:border-utama focus:outline-none focus:ring-1 focus:ring-utama dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600";
+const kelasInput = "mt-1 w-full rounded-lg border border-input bg-card p-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
 
 
 export default function FormKontak() {
@@ -46,7 +46,7 @@ export default function FormKontak() {
     <form onSubmit={kirim} noValidate className="space-y-4 max-w-xl">
       {/* 1. Isian Nama */}
       <div>
-        <label htmlFor="nama" className="block font-semibold text-gray-800">
+        <label htmlFor="nama" className="block font-semibold text-foreground">
           Nama lengkap
         </label>
         <input
@@ -58,13 +58,13 @@ export default function FormKontak() {
           className={kelasInput}
         />
         {error.nama && (
-          <p className="mt-1 text-sm font-semibold text-red-600">{error.nama}</p>
+          <p className="mt-1 text-sm font-semibold text-destructive">{error.nama}</p>
         )}
       </div>
 
       {/* 2. Isian Email */}
       <div>
-        <label htmlFor="email" className="block font-semibold text-gray-800">
+        <label htmlFor="email" className="block font-semibold text-foreground">
           Email
         </label>
         <input
@@ -76,13 +76,13 @@ export default function FormKontak() {
           className={kelasInput}
         />
         {error.email && (
-          <p className="mt-1 text-sm font-semibold text-red-600">{error.email}</p>
+          <p className="mt-1 text-sm font-semibold text-destructive">{error.email}</p>
         )}
       </div>
 
       {/* 3. Isian Nomor HP */}
       <div>
-        <label htmlFor="nohp" className="block font-semibold text-gray-800">
+        <label htmlFor="nohp" className="block font-semibold text-foreground">
           Nomor HP
         </label>
         <input
@@ -94,13 +94,13 @@ export default function FormKontak() {
           onChange={(e) => setHp(e.target.value)}
         />
         {error.hp && (
-          <p className="mt-1 text-sm font-semibold text-red-600">{error.hp}</p>
+          <p className="mt-1 text-sm font-semibold text-destructive">{error.hp}</p>
         )}
       </div>
 
       {/* 4. Isian Keperluan */}
       <div>
-        <label htmlFor="keperluan" className="block font-semibold text-gray-800">
+        <label htmlFor="keperluan" className="block font-semibold text-foreground">
           Keperluan
         </label>
         <select id="keperluan" name="keperluan" value={keperluan} 
@@ -112,13 +112,13 @@ export default function FormKontak() {
           <option value="lainnya">Lainnya</option>
         </select>
         {error.keperluan && (
-          <p className="mt-1 text-sm font-semibold text-red-600">{error.keperluan}</p>
+          <p className="mt-1 text-sm font-semibold text-destructive">{error.keperluan}</p>
         )}
       </div>
 
       {/* 5. Isian Pesan */}
       <div>
-        <label htmlFor="pesan" className="block font-semibold text-gray-800">
+        <label htmlFor="pesan" className="block font-semibold text-foreground">
           Pesan
         </label>
         <textarea
@@ -130,25 +130,24 @@ export default function FormKontak() {
           onChange={(e) => setPesan(e.target.value)}
         ></textarea>
         {error.pesan && (
-          <p className="mt-1 text-sm font-semibold text-red-600">{error.pesan}</p>
+          <p className="mt-1 text-sm font-semibold text-destructive">{error.pesan}</p>
         )}
       </div>
 
       {/* Tombol Kirim */}
       <button
         type="submit"
-        className="rounded-lg bg-red-700 hover:bg-red-800 px-6 py-2 font-semibold text-white transition-all"
+        className="rounded-lg bg-black px-6 py-2 font-semibold text-white transition-colors hover:bg-neutral-800"
       >
         Kirim Pesan
       </button>
 
-      <p className="text-xs text-gray-500 mt-2">
+      <p className="mt-2 text-xs text-muted-foreground">
         Form ini belum mengirim pesan. Pengiriman pesan diaktifkan di Minggu 15.
       </p>
 
       {berhasil && (
-        <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg
-      green-900 dark:text-green-100">
+        <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-green-900 dark:text-green-100">
           Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
         </p>
       )}
