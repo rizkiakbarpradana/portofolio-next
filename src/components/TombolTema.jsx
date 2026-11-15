@@ -1,16 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+import { Button } from "@/components/ui/button";
+
+function subscribe(callback) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
 
 export default function TombolTema() {
-  // 1. Baca localStorage langsung saat inisialisasi state (menghindari setState di dalam useEffect)
-  const [gelap, setGelap] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("tema") === "gelap";
-    }
-    return false;
-  });
+  const gelap = useSyncExternalStore(
+    subscribe,
+    () => localStorage.getItem("tema") === "gelap",
+    () => false
+  );
 
-  // 2. Gunakan useEffect hanya untuk menyinkronkan class 'dark' ke elemen HTML
   useEffect(() => {
     if (gelap) {
       document.documentElement.classList.add("dark");
@@ -19,21 +22,19 @@ export default function TombolTema() {
     }
   }, [gelap]);
 
-  // 3. Fungsi gantiTema untuk mengubah state dan menyimpan ke localStorage
   function gantiTema() {
-    const isDark = !gelap;
-    setGelap(isDark);
-    localStorage.setItem("tema", isDark ? "gelap" : "terang");
+    const temaBaru = gelap ? "terang" : "gelap";
+    localStorage.setItem("tema", temaBaru);
+    window.dispatchEvent(new Event("storage"));
   }
 
   return (
-    <button
-      type="button"
+    <Button
+      variant="outline"
       onClick={gantiTema}
-      aria-pressed={gelap}
-      className="rounded-lg border border-latar bg-transparent px-3 py-1 text-sm font-semibold text-latar transition-colors active:border-primary active:bg-primary active:text-primary-foreground"
+      className="border-white bg-transparent text-white hover:bg-aksen hover:text-white"
     >
       {gelap ? "Mode Terang" : "Mode Gelap"}
-    </button>
+    </Button>
   );
 }

@@ -6,21 +6,17 @@ import FilterKeahlian from "@/components/FilterKeahlian";
 import { supabase } from "@/lib/supabase";
 import { buttonVariants } from "@/components/ui/button";
 
-  const skills = [
-    { id: 1, nama: "HTML", level: "Menengah" },
-    { id: 2, nama: "CSS", level: "Menengah" },
-    { id: 3, nama: "Git dan GitHub", level: "Dasar" },
-    { id: 4, nama: "Desain poster dengan Canva", level: "Mahir" },
-    { id: 5, nama: "JavaScript", level: "Dasar" },
-  ];
-
-export default async function Page() {
+export default async function Home() {
+  const { data: skills } = await supabase
+    .from("skills")
+    .select("*")
+    .order("id");
   const { data: proyekDariSupabase } = await supabase
     .from("projects")
     .select("*")
     .order("created_at", { ascending: false })
     .limit(3);
-    
+
   const proyekTerbaru = proyekDariSupabase;
 
   return (

@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Tentang",
-  // 1. Mengubah deskripsi metadata menjadi nama Anda (Andi Pratama)
-  description: "Cerita, hobi, cita-cita, dan jadwal belajar Andi Pratama.",
+  title: "Tentang Saya",
+  // 1. Mengubah deskripsi metadata menjadi nama Anda (Rizki Akbar Pradana)
+  description: "Cerita, hobi, cita-cita, dan jadwal belajar Rizki Akbar Pradana.",
 };
 
 export default function Tentang() {
@@ -16,11 +16,11 @@ export default function Tentang() {
    // 2. Ditambahkan class "space-y-6" pada tag <main> agar setiap section otomatis memiliki jarak vertikal yang rapi dan konsisten
    <main className="mx-auto max-w-5xl px-4 py-10 space-y-6">
      
-     <h1 className="text-3xl font-bold text-primary md:text-4xl">Perkenalan</h1>
+     <h1 className="text-3xl font-bold text-primary md:text-4xl">Tentang Saya</h1>
 
      {/* Section 2: Tentang Saya */}
      <section id="tentang-saya" className="bg-card p-6 rounded-xl shadow-sm border border-border scroll-mt-6">
-       <h2 className="text-xl font-bold text-primary mb-3">Tentang Saya</h2>
+       <h2 className="text-xl font-bold text-primary mb-3">Perkenalan</h2>
        <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
          Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi. Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM di sekitar rumah.
        </p>
