@@ -25,7 +25,9 @@ export default function ProyekCard({ proyek }) {
         <CardHeader className="flex-1">
           <div className="mb-1 flex flex-wrap gap-1.5">
             {daftarKategori.map((kat) => (
-              <Badge key={kat}>{kat}</Badge>
+              <Badge key={kat} variant={kat.toLowerCase()}>
+                {kat}
+              </Badge>
             ))}
           </div>
           <CardTitle className="text-lg text-primary">{proyek.judul}</CardTitle>
