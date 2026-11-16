@@ -11,7 +11,7 @@ export default function Hero({ nama, tagline }) {
         width={180}
         height={180}
         loading="eager"
-        className="w-32 h-32 rounded-full aspect-square object-cover border-4 border-primary"
+        className="w-32 h-32 rounded-full aspect-square object-cover border-4 border-aksen"
       />
       <div className="flex-1">
         <h1 className="text-3xl font-bold text-primary md:text-5xl">
