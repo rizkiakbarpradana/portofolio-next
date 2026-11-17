@@ -39,7 +39,7 @@ export default async function Home() {
           <div className="mt-8 flex justify-start">
             <Link 
               href="/keahlian" 
-              className="rounded-lg border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+              className="rounded-lg border border-black bg-black px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-neutral-800 dark:border-white/60 dark:shadow-white/10"
             >
               Lihat semua keahlian
             </Link>
@@ -59,7 +59,7 @@ export default async function Home() {
           <div className="mt-8 flex justify-start">
              <Link
               href="/proyek"
-              className="rounded-lg border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+              className="rounded-lg border border-black bg-black px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-neutral-800 dark:border-white/60 dark:shadow-white/10"
             >
               Lihat semua proyek
             </Link>

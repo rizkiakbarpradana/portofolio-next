@@ -25,7 +25,7 @@ export default function Hero({ nama, tagline }) {
           </Link>
           <Link
             href="/kontak"
-            className={`${buttonVariants({ variant: "outline", size: "lg" })} border-primary text-primary dark:border-primary dark:text-primary`}
+            className={`${buttonVariants({ variant: "outline", size: "lg" })} border-2 border-primary text-primary dark:border-primary dark:text-primary`}
           >
             Hubungi Saya
           </Link>
