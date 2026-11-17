@@ -4,7 +4,6 @@ import ProyekCard from "@/components/ProyekCard";
 import SkillCard from "@/components/SkillsCard";
 import FilterKeahlian from "@/components/FilterKeahlian";
 import { supabase } from "@/lib/supabase";
-import { buttonVariants } from "@/components/ui/button";
 
 export const revalidate = 60;
 
@@ -40,7 +39,7 @@ export default async function Home() {
           <div className="mt-8 flex justify-start">
             <Link 
               href="/keahlian" 
-              className="rounded-lg bg-black px-5 py-2.5 font-semibold text-white shadow-sm transition-all text-sm hover:bg-neutral-800"
+              className="rounded-lg border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
             >
               Lihat semua keahlian
             </Link>
@@ -60,7 +59,7 @@ export default async function Home() {
           <div className="mt-8 flex justify-start">
              <Link
               href="/proyek"
-              className="rounded-lg bg-black px-5 py-2.5 font-semibold text-white shadow-sm transition-all text-sm hover:bg-neutral-800"
+              className="rounded-lg border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
             >
               Lihat semua proyek
             </Link>
