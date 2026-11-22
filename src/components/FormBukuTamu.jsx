@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { toast } from "sonner";
 import { kirimPesan } from "@/app/actions";
 import TombolKirim from "@/components/TombolKirim";
 import { Input } from "@/components/ui/input";
@@ -8,7 +9,15 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function FormBukuTamu() {
-  const [state, formAction] = useActionState(kirimPesan, {});
+  async function kirimDanBeriTahu(stateSebelum, formData) {
+    const hasil = await kirimPesan(stateSebelum, formData);
+    if (hasil.berhasil) {
+      toast.success(hasil.berhasil);
+    }
+    return hasil;
+  }
+
+  const [state, formAction] = useActionState(kirimDanBeriTahu, {});
   
   return (
     <form action={formAction} className="space-y-4">
