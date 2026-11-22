@@ -21,6 +21,7 @@ const badgeVariants = cva(
         html: "bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-200",
         css: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200",
         javascript: "bg-yellow-100 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-200",
+        "next.js": "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-200",
         responsive: "bg-yellow-100 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-200",
         codepen: "bg-yellow-100 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-200",
       },
