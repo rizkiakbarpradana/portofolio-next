@@ -8,6 +8,7 @@ const menu = [
  { href: "/tentang", label: "Tentang" },
  { href: "/keahlian", label: "keahlian" },
  { href: "/proyek", label: "Proyek" },
+ { href: "/buku-tamu", label: "Buku Tamu" },
  { href: "/kontak", label: "Kontak" }
 ];
 
