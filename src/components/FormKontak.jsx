@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { kirimKontak } from "@/app/actions";
 
 const kelasInput = "mt-1 w-full rounded-lg border border-input bg-card p-2 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
-
 
 export default function FormKontak() {
   const [nama, setNama] = useState("");
@@ -15,9 +15,12 @@ export default function FormKontak() {
   const [pesan, setPesan] = useState("");
   const [error, setError] = useState({});
   const [berhasil, setBerhasil] = useState(false);
+  const [gagal, setGagal] = useState("");
 
-  function kirim(e) {
+  async function kirim(e) {
     e.preventDefault();
+    setGagal("");
+    setBerhasil(false);
     const errorBaru = {};
 
     if (!nama.trim()) {
@@ -39,7 +42,19 @@ export default function FormKontak() {
     }
 
     setError(errorBaru);
-    setBerhasil(Object.keys(errorBaru).length === 0);
+
+    if (Object.keys(errorBaru).length > 0) {
+      return;
+    }
+
+    const hasil = await kirimKontak({ nama, email, pesan });
+
+    if (hasil?.error) {
+      setGagal(hasil.error);
+      return;
+    }
+
+    setBerhasil(true);
   }
 
   return (
@@ -103,9 +118,13 @@ export default function FormKontak() {
         <label htmlFor="keperluan" className="block font-semibold text-foreground">
           Keperluan
         </label>
-        <select id="keperluan" name="keperluan" value={keperluan} 
-        onChange={(e) => setKeperluan(e.target.value)} 
-        className={kelasInput}>
+        <select
+          id="keperluan"
+          name="keperluan"
+          value={keperluan}
+          onChange={(e) => setKeperluan(e.target.value)}
+          className={kelasInput}
+        >
           <option value="">-- Pilih keperluan --</option>
           <option value="bertanya">Bertanya</option>
           <option value="kerja-sama">Kerja sama proyek</option>
@@ -142,13 +161,15 @@ export default function FormKontak() {
         Kirim Pesan
       </button>
 
-      <p className="mt-2 text-xs text-muted-foreground">
-        Form ini belum mengirim pesan. Untuk menyapa saya, tulis pesan di halaman Buku tamu.
-      </p>
+      {gagal && (
+        <p className="mt-2 text-sm font-semibold text-aksen">
+          {gagal}
+        </p>
+      )}
 
       {berhasil && (
         <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-green-900 dark:text-green-100">
-          Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
+          Terima kasih, {nama}! Pesanmu sudah terkirim.
         </p>
       )}
     </form>

@@ -20,3 +20,29 @@ export async function kirimPesan(stateSebelum, formData) {
   revalidatePath("/buku-tamu");
   return { berhasil: `Terima kasih, ${nama}! Pesanmu sudah tersimpan.` };
 }
+
+export async function kirimKontak(data) {
+  const nama = data.nama.trim();
+  const email = data.email.trim();
+  const pesan = data.pesan.trim();
+
+  if (nama === "") {
+    return { error: "Nama tidak boleh kosong." };
+  }
+  if (!email.includes("@")) {
+    return { error: "Email harus memuat @." };
+  }
+  if (pesan.length < 10) {
+    return { error: "Pesan minimal 10 karakter." };
+  }
+
+  const { error } = await supabase
+    .from("messages")
+    .insert({ nama, email, pesan });
+
+  if (error) {
+    return { error: `Pesan gagal dikirim: ${error.message}` };
+  }
+
+  return { berhasil: `Terima kasih, ${nama}! Pesanmu sudah terkirim.` };
+}
